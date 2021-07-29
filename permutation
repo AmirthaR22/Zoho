@@ -1,0 +1,33 @@
+
+import  java.util.ArrayList;
+import  java.util.List;
+	public class PermutationString{
+		static void getPermutation(String str, String ans, List<String> list) {
+			if(str.length() ==0) {
+			list.add(ans);
+			return;
+		}
+		for(int i=0; i<str.length(); i++) {
+			char ch=str.charAt(i);
+	        String ros=str.substring(0,i) + str.substring(i+1);
+	        getPermutation(ros, ans+ch,list);
+	}
+	}
+
+		public static void main(String[] args) {
+			String givenString="oidbcaf";
+			
+			String givenCompString="abc";
+			List<String> permutations=new ArrayList<>();
+			 getPermutation(givenCompString, " ",permutations);
+			 for( String str : permutations) {
+				 if(givenString.contains(str)) {
+					 System.out.println("True");
+					 return;
+				 }
+			 }
+			 System.out.println("False");
+		}
+	}
+		
+
